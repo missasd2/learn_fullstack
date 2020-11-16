@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="mask">
+        <div class="center">
+            <!-- <h2 class="title">
+                <img src="" alt="">
+            </h2> -->
+
+            <!--左箭头-->
+            <img :src="imgArr[index]">
+            <a href="javascript:void(0)" v-show="index!=0" @click="prev">
+                <img src="./img/prev.png" alt="">
+            </a>
+
+            <!--图片-->
+            <img :srcalt="imgArr[index]" alt="">
+
+
+
+            <!-- 右箭头 -->
+            <a href="javascript:void(0)" v-show="index < imgArr.length-1" @click="next">
+                <img src="./img/next.png" alt="">
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: "#mask",
+            data: {
+                message: "Hello Vue",
+                imgArr: [
+                    "./img/斜眼笑0.jpg",
+                    "./img/斜眼笑1.jpg",
+                    "./img/斜眼笑2.jpg",
+                    "./img/斜眼笑3.jpg",
+                    "./img/斜眼笑4.jpg",
+                ],
+                index: 0,
+
+            },
+            methods:{
+               prev:function(){
+                   if(this.index > 0){
+                       this.index--;
+                   }
+               },
+               next:function(){
+                   if(this.index < 4){
+                       this.index++;
+                   }
+               },
+            }
+        })
+    </script>
+</body>
+</html>

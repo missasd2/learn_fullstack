@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <input type="button" value="添加数据" @click="add">
+        <input type="button" value="移除数据" @click="remove">
+        <ul>
+            <li v-for="(item, index) in arr" :title="item">
+               {{index}}--- {{item}}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(ite, index) in objArr" :title="ite.name">
+                {{index+1}} --- {{ite}} ---- {{ite.name}}
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello Vue",
+                arr: [1,2,3,4,5],
+                objArr: [
+                    {name:"jack"},
+                    {name:"rose"},
+                ]
+            },
+            methods:{
+                add: function(){
+                    this.objArr.push({name:"tom"});
+                },
+                remove: function(){
+                    this.objArr.shift();
+                }
+            }
+        })
+    </script>
+</body>
+</html>

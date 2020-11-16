@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        {{message}}
+        <input type="button" value="点击" @click="doIt(666, '你好')">
+        <input type="text" @keyup.enter="sayHi">
+    </div>
+    
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello Vue"
+            },
+            methods:{
+                doIt: function(p1, p2){
+                    console.log("做it");
+                    console.log(p1, p2);
+                },
+                sayHi: function(){
+                    alert("饿了么");
+                },
+            }
+        })
+    </script>
+</body>
+</html>
